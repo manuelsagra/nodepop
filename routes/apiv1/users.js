@@ -40,7 +40,6 @@ router.post('/authenticate', async (req, res, next) => {
         // Check credentials
         const user = await User.findOne({ email: email }).exec();
         if (!user || password !== user.password) {
-            // TODO: i18n
             res.json({ 
                 success: true, 
                 message: res.__('Invalid credentials')

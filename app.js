@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var i18n = require("i18n");
+var i18n = require('i18n');
 
 var app = express();
 
@@ -39,13 +39,14 @@ app.use(function(req, res, next) {
 });
 
 // Error handler
-app.use(function(err, req, res, next) {
+// es
+app.use(function(err, req, res, next) { // eslint-disable-line no-unused-vars
     res.status(err.status || 500);
 
     if (isAPI(req)) {
         res.json({
             success: false, 
-            error: err.message 
+            error: res.__(err.message) 
         });
         return;
     }

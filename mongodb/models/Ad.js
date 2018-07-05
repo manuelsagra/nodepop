@@ -27,13 +27,13 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     query.sort(sort);
 
     return query.exec();
-}
+};
 
 adSchema.statics.getTags = function() {
     const query = Ad.distinct('tags');
 
     return query.exec();
-}
+};
 
 const Ad = mongoose.model('Ad', adSchema);
 

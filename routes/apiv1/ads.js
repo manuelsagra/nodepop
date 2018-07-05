@@ -32,7 +32,7 @@ router.get('/', jwtAuth(), async (req, res, next) => {
                 const priceAux = price.split('-');
                 if (priceAux.length == 2) {
                     if (priceAux[0] === '' && priceAux[1] === '') {
-                        throw new Error(res.__('Price range is not valid'));
+                        throw new Error('Price range is not valid');
                     }
                     filter.price = {};
                     if (priceAux[0] !== '') {
@@ -42,8 +42,7 @@ router.get('/', jwtAuth(), async (req, res, next) => {
                         filter.price['$lte'] = parseInt(priceAux[1]);
                     } 
                 } else {
-                    // TODO i18n
-                    throw new Error(res.__('Price range is not valid'));
+                    throw new Error('Price range is not valid');
                 }
             } else {
                 filter.price = parseInt(price);

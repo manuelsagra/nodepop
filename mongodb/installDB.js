@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const conn = require('./mongoConnection');
+require('./mongoConnection');
 const User = require('./models/User');
 const Ad = require('./models/Ad');
 
@@ -30,7 +30,7 @@ async function insertData() {
             console.log('\x1b[34mNew user\x1b[0m', userInserted.name);
         }
 
-         // Empty ad collection and insert data
+        // Empty ad collection and insert data
         console.log('\x1b[33m--------------------------------');
         console.log('Ads');
         console.log('--------------------------------\x1b[0m');
