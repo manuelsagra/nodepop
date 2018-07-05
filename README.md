@@ -41,14 +41,31 @@ In both modes a cluster is started with as many nodes as the number of CPU cores
 
 ## API documentation
 
-TODO
+### Users
+
+Users can register making a POST to `/users` with the following parameters in the body:
+
+* **name** Name of the user
+* **email** E-mail of the user
+* **password** Password of the user
+
+To authenticate and retrieve a JWT token, a POST request to `/users/authenticate` should be used, with the following parameters in the body:
+
+* **email** E-mail of the user
+* **password** Password of the user
+
+### Ads
+
+Using the previous token, there are two more API entry points. Making a GET request to `/ads` retrieves a list of ads, with the following parameters:
+
+* **token** A JWT token obtained via a request to `/users/authenticate` (Required)
+* **selling** True for looking for items for sale and false for retrieving wanted items (Optinal)
+* **price** Either an exact price or a price range (priceA-priceB for a range, priceA- for prices greater or equal and -priceA for prices lower or equal) (Optional)
+* **name** The start of the item name, case insensitive (Optional) 
+* **tag** Tag used in the ad (Optional)
+
+To see the list of tags used, you can make a GET request to `/ads/tags` with no parameters needed.
 
 ## TODO
-
-* indexes (user's email, ad fields)
-* Validations (email)
-* Users (registration, jwt)
-
 * iodocs
-* i18n
 * ESLint

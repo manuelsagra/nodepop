@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-// ad schema
+// Ad schema
 const adSchema = mongoose.Schema({
     name: String,
     selling: Boolean,
@@ -11,15 +11,28 @@ const adSchema = mongoose.Schema({
     tags: [String] 
 });
 
+adSchema.index({
+    name: 1,
+    selling: 1,
+    price: 1,
+    tags: 1
+});
+
 // lists ads with criteria
 adSchema.statics.list = function(filter, skip, limit, fields, sort) {
-  const query = Ad.find(filter);
-  query.skip(skip);
-  query.limit(limit);
-  query.select(fields);
-  query.sort(sort);
+    const query = Ad.find(filter);
+    query.skip(skip);
+    query.limit(limit);
+    query.select(fields);
+    query.sort(sort);
 
-  return query.exec();
+    return query.exec();
+}
+
+adSchema.statics.getTags = function() {
+    const query = Ad.distinct('tags');
+
+    return query.exec();
 }
 
 const Ad = mongoose.model('Ad', adSchema);
