@@ -11,6 +11,9 @@ router.get('/', async (req, res, next) => {
     try {
         const name = req.query.name;
         const price = req.query.price;
+        const tag = req.query.tag;
+        const selling = req.query.selling;
+
         const skip = parseInt(req.query.skip);
         const limit = parseInt(req.query.limit);
         const fields = req.query.fields;
@@ -18,7 +21,10 @@ router.get('/', async (req, res, next) => {
 
         // Build filters (name, tag, type, price range)
         const filter = {};
-        // TODO: name, tag, type
+
+        if (name) {
+            filter.name = { '$regex': new RegExp(`^${name}`, 'i') };
+        }
 
         if (price) {
             if (price.indexOf('-') !== -1) {
@@ -42,6 +48,14 @@ router.get('/', async (req, res, next) => {
             } else {
                 filter.price = parseInt(price);
             }
+        }
+
+        if (tag) {
+            filter.tags = tag;
+        }
+
+        if (selling) {
+            filter.selling = (selling === 'true');
         }
 
         const ads = await Ad.list(filter, skip, limit, fields, sort);

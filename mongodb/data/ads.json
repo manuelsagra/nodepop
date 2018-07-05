@@ -1,0 +1,38 @@
+[
+    {
+        "name": "DeLorean",
+        "selling": false,
+        "price": 1000000,
+        "photo": "images/ads/delorean.jpg",
+        "tags": [
+            "motor"
+        ]
+    },
+    {
+        "name": "iPhone X",
+        "selling": true,
+        "price": 1000000,
+        "photo": "images/ads/iphonex.jpg",
+        "tags": [
+            "mobile"
+        ]
+    },
+    {
+        "name": "Dream job",
+        "selling": true,
+        "price": 50000,
+        "photo": "images/ads/job.jpg",
+        "tags": [
+            "lifestyle", "work"
+        ]
+    },
+    {
+        "name": "Beard cut",
+        "selling": true,
+        "price": 20,
+        "photo": "images/ads/beard.jpg",
+        "tags": [
+            "lifestyle"
+        ]
+    }
+]
