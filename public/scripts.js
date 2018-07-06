@@ -96,12 +96,16 @@ function searchAds() {
                 if (data.result.length == 0) {
                     $('#results').html('<div class="alert alert-warning text-center">No results found</div>');
                 } else {
-                    var res = '<div class="row">';
+                    $('#results').html('<div class="row">');
                     $.each(data.result, function(k, v) {
-                        res += '<div class="col-md-4 mb-3"><div class="card"><img class="card-img-top" src="/' + v.photo + '" alt="' + v.name + '"><div class="card-body"><h5 class="card-title">' + v.name + '</h5><p>Price: ' + v.price + '</p><div>' + showTags(v.tags) + '</div><div class="text-right text-primary small">' + (v.selling ? 'FOR SALE' : 'WANTED') + '</div></div></div></div>';
+                        $('#results .row').append('<div class="col-md-4 mb-3"><div class="card">' + 
+                            '<div class="ad-img" style="background-image: url(\'' + v.photo + '\')"></div>' +
+                            '<div class="card-body"><h5 class="card-title">' + v.name + '</h5>' + 
+                            '<p>$' + v.price + '</p>' + 
+                            '<div>' + showTags(v.tags) + '</div>' + 
+                            '<div class="text-right text-primary small">' + (v.selling ? 'FOR SALE' : 'WANTED') + '</div>' + 
+                            '</div></div></div>');
                     });
-                    res += '</div>';
-                    $('#results').html(res);
                 }
             } else {
                 alert(data.error);

@@ -6,3 +6,11 @@ body {
 a {
     color: #369;
 }
+
+.ad-img {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #aaa;
+}
