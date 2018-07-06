@@ -3,7 +3,11 @@ var token;
 $(document).ready(function() {
     $('#search-box').hide();
 
-    $('#login-btn').on('click', function() {
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $('#email').focus();
+    });
+
+    $('#login-form').on('submit', function() {
         $.ajax({
             url: '/apiv1/users/authenticate',
             method: 'POST',
@@ -15,7 +19,7 @@ $(document).ready(function() {
                 if (data.success) {
                     token = data.token;
 
-                    $('#login-box').hide();
+                    $('#login-form').hide();
                     $('#search-box').show();
 
                     getTags();
@@ -26,10 +30,12 @@ $(document).ready(function() {
                 }
             }
         });
+        return false;
     });
 
-    $('#search-btn').on('click', function() {
+    $('#search-form').on('submit', function(e) {
         searchAds();       
+        return false;
     });
 
     $('input[name=price-type]').on('change', function() {
@@ -102,8 +108,8 @@ function searchAds() {
                             '<div class="ad-img" style="background-image: url(\'' + v.photo + '\')"></div>' +
                             '<div class="card-body"><h5 class="card-title">' + v.name + '</h5>' + 
                             '<p>$' + v.price + '</p>' + 
+                            '<div class="float-right text-danger small">' + (v.selling ? 'FOR SALE' : 'WANTED') + '</div>' + 
                             '<div>' + showTags(v.tags) + '</div>' + 
-                            '<div class="text-right text-primary small">' + (v.selling ? 'FOR SALE' : 'WANTED') + '</div>' + 
                             '</div></div></div>');
                     });
                 }

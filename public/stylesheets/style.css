@@ -14,3 +14,7 @@ a {
     background-position: center center;
     background-color: #aaa;
 }
+
+select, select option {
+    text-transform: capitalize;
+}
