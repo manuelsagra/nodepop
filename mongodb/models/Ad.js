@@ -31,6 +31,7 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
 
 adSchema.statics.getTags = function() {
     const query = Ad.distinct('tags');
+    // Mongoose doesn't support sorting this!!! 
 
     return query.exec();
 };

@@ -1,6 +1,6 @@
 # Nodepop API
 
-REST API for selling second hand items in an app written in node.js. Right now it only shows preloaded items to registered users.
+A node.js REST API for selling second hand stuff. Right now it only shows preloaded items to registered users.
 
 ## Installation
 
@@ -39,7 +39,7 @@ To start the server you should execute:
 npm run start
 ```
 
-If you want to start the server with debug info you need to install nodemon (`npm i -g nodemon`) and then execute:
+If you want to start the server with debug info you need to execute:
 
 ```shell
 npm run debug
@@ -47,35 +47,46 @@ npm run debug
 
 In both modes a cluster is started with as many nodes as the number of CPU cores.
 
+Once started, you can see the documentation and an sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/).
+
 ## API documentation
 
 Error messages are available either in *english* (default) or *spanish*. To use one of this languages, you can use the `lang` query parameter or the browser standard `Accept-Language` header and the appropiate ISO code (`en`, `es`).
 
 ### Users
 
-Users can register making a POST to `/users` with the following parameters in the body:
+#### POST /users
 
-* **name** - Name of the user
-* **email** - E-mail of the user
-* **password** - Password of the user
+Used to register a user. It uses the following parameters in the body:
 
-To authenticate and retrieve a JWT token, a POST request to `/users/authenticate` should be used, with the following parameters in the body:
+* **name** - Name of the user *(Required)*
+* **email** - E-mail of the user *(Required)*
+* **password** - Password of the user *(Required)*
 
-* **email** - E-mail of the user
-* **password** - Password of the user
+#### POST /users/authenticate
+
+To authenticate and retrieve a JWT token. The following parameters in the body are needed:
+
+* **email** - E-mail of the user *(Required)*
+* **password** - Password of the user *(Required)*
 
 ### Ads
 
-Using the previous token, there are two more API entry points. Executing a GET request to `/ads` retrieves a list of ads, with the following parameters:
+#### GET /ads
 
-* **token** - A JWT token obtained via a request to `/users/authenticate` (Required)
-* **selling** - True for looking for items for sale and false for retrieving wanted items (Optinal)
-* **price** - Either an exact price or a price range (priceA-priceB for a range, priceA- for prices greater or equal and -priceA for prices lower or equal) (Optional)
-* **name** - The start of the item name, case insensitive (Optional) 
-* **tag** - Tag used in the ad (Optional)
+Using the previous token, retrieves a list of ads, with the following parameters:
 
-To see the list of tags used in the ads, you can make a GET request to `/ads/tags` passing the token as a parameter.
+* **token** - A JWT token obtained via a POST request to `/users/authenticate` *(Required)*
+* **selling** - True for looking for items for sale and false for retrieving wanted items *(Optional)*
+* **price** - Either an exact price or a price range (priceA-priceB for a range, priceA- for prices greater or equal and -priceA for prices lower or equal) *(Optional)*
+* **name** - The start of the item name, case insensitive *(Optional)*
+* **tag** - Tag used in the ad *(Optional)*
+* **skip** - Number of items to skip *(Optional)*
+* **limit** - Number of items to show *(Optional)*
+* **sort** - Sort results by this field (name, selling, price or tag) *(Optional)*
 
-## TODO
-* iodocs
-* Post new ads
+#### GET /ads/tags
+
+To see the list of tags used in the ads. It just need one parameter:
+
+* **token** - A JWT token obtained via a POST request to `/users/authenticate` *(Required)*

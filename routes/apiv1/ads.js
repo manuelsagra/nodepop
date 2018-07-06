@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 
@@ -76,7 +78,7 @@ router.get('/tags', jwtAuth(), async (req, res, next) => {
         const tags = await Ad.getTags();
         res.json({
             success: true,
-            result: tags
+            result: tags.sort() // Workaround for mongoose not being able to sort a distinct search
         });
     } catch(err) {
         next(err);    

@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 
@@ -13,10 +15,19 @@ const localConfig = require('../../localConfig');
 router.post('/', async (req, res, next) => {
     try {
         const user = new User(req.body);
-        if (user.password) {
-            const hash = crypto.createHash('sha256').update(user.password).digest('base64');
-            user.password = hash;
+
+        // Validations
+        if (!user.name || !user.email || !user.password) {
+            throw new Error('All parameters (email, name, password) are required');
         }
+        if (!localConfig.validations.email.test(user.email)) {
+            throw new Error('The e-mail format is not valid');
+        }
+
+        // Hash password
+        const hash = crypto.createHash('sha256').update(user.password).digest('base64');
+        user.password = hash;
+
         const userSaved = await user.save();
         res.json({
             success: true, 

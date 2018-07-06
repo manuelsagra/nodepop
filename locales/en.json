@@ -2,5 +2,7 @@
 	"Price range is not valid": "Price range is not valid",
 	"Invalid token": "Invalid token",
 	"Invalid credentials": "Invalid credentials",
-	"No token provided": "No token provided"
+	"No token provided": "No token provided",
+	"All parameters (email, name, password) are required": "All parameters (email, name, password) are required",
+	"The e-mail format is not valid": "The e-mail format is not valid"
 }
