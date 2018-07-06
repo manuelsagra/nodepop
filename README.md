@@ -4,7 +4,7 @@ A node.js REST API for selling second hand stuff. Right now it only shows preloa
 
 ## Installation
 
-You need a recent node.js installation to make it work. 
+You need a recent [node.js](https://nodejs.org/) installation to make it work. 
 
 Clone or download the repository and install dependencies executing:
 
@@ -12,7 +12,7 @@ Clone or download the repository and install dependencies executing:
 npm i
 ```
 
-You also need to have MongoDB installed. You can download the binaries for your operating system (Windows, Mac, Linux) and then execute this in the directory after decompression:
+You also need to have [MongoDB](https://www.mongodb.com/) installed. You can [download the binaries for your operating system](https://www.mongodb.com/download-center?jmp=homepage#community) (Windows, Mac, Linux) and then execute this in the directory after decompression:
 
 ```shell
 mkdir data/db
@@ -45,9 +45,7 @@ If you want to start the server with debug info you need to execute:
 npm run debug
 ```
 
-In both modes a cluster is started with as many nodes as the number of CPU cores.
-
-Once started, you can see the documentation and an sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/).
+In both modes a cluster is started with as many nodes as the number of CPU cores. Once started, you can see the documentation and a sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/).
 
 ## API documentation
 
@@ -78,7 +76,7 @@ Using the previous token, retrieves a list of ads, with the following parameters
 
 * **token** - A JWT token obtained via a POST request to `/users/authenticate` *(Required)*
 * **selling** - True for looking for items for sale and false for retrieving wanted items *(Optional)*
-* **price** - Either an exact price or a price range (priceA-priceB for a range, priceA- for prices greater or equal and -priceA for prices lower or equal) *(Optional)*
+* **price** - Either an exact price or a price range: `priceFrom-priceTo` for a range (e.g.: 50-120), `priceFrom-` for prices greater or equal than priceFrom (e.g.: 60-) or `-priceTo` for prices lower or equal than priceTo (e.g.: -1000) *(Optional)*
 * **name** - The start of the item name, case insensitive *(Optional)*
 * **tag** - Tag used in the ad *(Optional)*
 * **skip** - Number of items to skip *(Optional)*

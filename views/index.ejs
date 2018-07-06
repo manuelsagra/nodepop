@@ -56,7 +56,7 @@
                         <ul>   
                             <li><strong>token</strong> - A JWT token obtained via a POST request to <code>/users/authenticate</code> <em>(Required)</em></li>
                             <li><strong>selling</strong> - True for looking for items for sale and false for retrieving wanted items <em>(Optional)</em></li>
-                            <li><strong>price</strong> - Either an exact price or a price range (priceA-priceB for a range, priceA- for prices greater or equal and -priceA for prices lower or equal) <em>(Optional)</em></li>
+                            <li><strong>price</strong> - Either an exact price or a price range: <code>priceFrom-priceTo</code> for a range (e.g.: 50-120), <code>priceFrom-</code> for prices greater or equal than priceFrom (e.g.: 60-) or <code>-priceTo</code> for prices lower or equal than priceTo (e.g.: -1000) <em>(Optional)</em></li>
                             <li><strong>name</strong> - The start of the item name, case insensitive <em>(Optional)</em></li>
                             <li><strong>tag</strong> - Tag used in the ad <em>(Optional)</em></li>
                             <li><strong>skip</strong> - Number of items to skip <em>(Optional)</em></li>
