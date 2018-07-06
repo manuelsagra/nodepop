@@ -2,7 +2,7 @@
 
 A node.js REST API for selling second hand stuff. Right now it only shows preloaded items to registered users.
 
-## Installation
+## Installation
 
 You need a recent [node.js](https://nodejs.org/) installation to make it work. 
 
