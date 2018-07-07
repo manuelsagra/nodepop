@@ -19,11 +19,11 @@ adSchema.index({
 });
 
 // lists ads with criteria
-adSchema.statics.list = function(filter, skip, limit, fields, sort) {
+adSchema.statics.list = function(filter, skip, limit, sort) {
     const query = Ad.find(filter);
     query.skip(skip);
     query.limit(limit);
-    query.select(fields);
+    query.select('-__v');
     query.sort(sort);
 
     return query.exec();

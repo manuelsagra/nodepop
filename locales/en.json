@@ -4,5 +4,6 @@
 	"Invalid credentials": "Invalid credentials",
 	"No token provided": "No token provided",
 	"All parameters (email, name, password) are required": "All parameters (email, name, password) are required",
-	"The e-mail format is not valid": "The e-mail format is not valid"
+	"The e-mail format is not valid": "The e-mail format is not valid",
+	"Skip value must be non-negative, but received: -1": "Skip value must be non-negative, but received: -1"
 }

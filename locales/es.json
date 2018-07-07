@@ -1,12 +1,13 @@
 {
 	"Price range is not valid": "El rango de precios no es válido",
 	"Invalid token": "Token inválido",
-	"Invalid credentials": "Credenciales inválidos",
+	"Invalid credentials": "Credenciales inválidas",
 	"No token provided": "No se encontró un token",
 	"All parameters (email, name, password) are required": "Todos los parámetros (email, name, password) son obligatorios",
 	"The e-mail format is not valid": "El formato del e-mail no es válido",
-	"sort cannot be used with distinct": "sort cannot be used with distinct",
-	"query.exec(...).sort is not a function": "query.exec(...).sort is not a function",
-	"Ad.aggregate(...).distinct is not a function": "Ad.aggregate(...).distinct is not a function",
-	"Unrecognized pipeline stage name: '$distinct'": "Unrecognized pipeline stage name: '$distinct'"
+	"sort cannot be used with distinct": "sort no puede ser usado con distinct",
+	"query.exec(...).sort is not a function": "query.exec(...).sort no es una función",
+	"Ad.aggregate(...).distinct is not a function": "Ad.aggregate(...).distinct no es una función",
+	"Unrecognized pipeline stage name: '$distinct'": "No se reconoció la función agregadora: '$distinct'",
+	"Skip value must be non-negative, but received: -1": "El valor de salto (skip) no puede ser negativo, pero se recibió: -1"
 }

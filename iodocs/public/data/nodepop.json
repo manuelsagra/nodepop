@@ -1,0 +1,185 @@
+{
+    "name": "Nodepop API",
+    "basePath": "http://localhost:3000",
+    "publicPath": "/apiv1",
+    "protocol": "rest",
+    "version": "1.0",
+    "auth": {
+        "key": {
+            "param": "token"
+        }
+    },
+    "resources": {
+        "Users": {
+            "methods": {
+                "register_user": {
+                    "name": "Register User",
+                    "path": "/users",
+                    "description": "Registers a user in the system",
+                    "httpMethod": "POST",
+                    "parameters": {
+                        "name": {
+                            "default": "Joe",
+                            "description": "User's name",
+                            "required": true,
+                            "type": "string",
+                            "location": "body"                             
+                        },
+                        "email": {
+                            "default": "joe@nodepop.com",
+                            "description": "User's e-mail",
+                            "required": true,
+                            "type": "string",
+                            "location": "body"
+                        },
+                        "password": {
+                            "default": "1234",
+                            "description": "User's password",
+                            "required": true,
+                            "type": "string" ,
+                            "location": "body"
+                        },
+                        "lang": {
+                            "default": "",
+                            "description": "Language of the error messages",
+                            "required": false,
+                            "type": "string",
+                            "enum": ["en", "es"],
+                            "location": "query"
+                        }
+                    }
+                }, 
+                "authenticate_user": {
+                    "name": "Authenticate User",
+                    "path": "/users/authenticate",
+                    "description": "Authenticates a user and gets a JWT Token",
+                    "httpMethod": "POST",
+                    "parameters": {
+                        "email": {
+                            "default": "joe@nodepop.com",
+                            "description": "User's e-mail",
+                            "required": true,
+                            "type": "string",
+                            "location": "body"
+                        },
+                        "password": {
+                            "default": "1234",
+                            "description": "User's password",
+                            "required": true,
+                            "type": "string" ,
+                            "location": "body"
+                        },
+                        "lang": {
+                            "default": "",
+                            "description": "Language of the error messages",
+                            "required": false,
+                            "type": "string",
+                            "enum": ["en", "es"],
+                            "location": "query"
+                        }
+                    }
+                }
+            }
+        }, "Ads": {
+            "methods": {
+                "get_ads": {
+                    "name": "Get Ads",
+                    "path": "/ads",
+                    "description": "Get ads with optional filters and pagination",
+                    "httpMethod": "GET",
+                    "parameters": {
+                        "token": {
+                            "default": "",
+                            "description": "JWT Token",
+                            "required": true,
+                            "type": "string",
+                            "location": "query"
+                        },
+                        "selling": {
+                            "default": "",
+                            "description": "Articles for sale (true) or wanted (false)",
+                            "required": false,
+                            "type": "boolean",
+                            "location": "query"
+                        },
+                        "price": {
+                            "default": "",
+                            "description": "Either an exact price or a price range: priceFrom-priceTo for a range (e.g.: 50-120), priceFrom- for prices greater or equal than priceFrom (e.g.: 60-) or -priceTo for prices lower or equal than priceTo (e.g.: -1000)",
+                            "required": false,
+                            "type": "string",
+                            "location": "query"
+                        },
+                        "name": {
+                            "default": "",
+                            "description": "The start of the item name, case insensitive",
+                            "required": false,
+                            "type": "string",
+                            "location": "query"
+                        },
+                        "tag": {
+                            "default": "",
+                            "description": "Tag used in the ad",
+                            "required": false,
+                            "type": "string",
+                            "enum": ["lifestyle", "mobile", "motor", "work"],
+                            "location": "query"
+                        },
+                        "skip": {
+                            "default": "0",
+                            "description": "Number of items to skip",
+                            "required": false,
+                            "type": "number",
+                            "location": "query"
+                        },
+                        "limit": {
+                            "default": "0",
+                            "description": "Number of items to show",
+                            "required": false,
+                            "type": "number",
+                            "location": "query"
+                        },
+                        "sort": {
+                            "default": "",
+                            "description": "Sort results by this field (name, selling, price or tag)",
+                            "required": false,
+                            "type": "string",
+                            "enum": ["name", "selling", "price", "tags"],
+                            "location": "query"
+                        },
+                        "lang": {
+                            "default": "",
+                            "description": "Language of the error messages",
+                            "required": false,
+                            "type": "string",
+                            "enum": ["en", "es"],
+                            "location": "query"
+                        }
+                    }
+                },
+                "get_tags": {
+                    "name": "Get Tags",
+                    "path": "/ads/tags",
+                    "description": "Get all tags used in the ads",
+                    "httpMethod": "GET",
+                    "parameters": {
+                        "token": {
+                            "default": "",
+                            "description": "JWT Token",
+                            "required": true,
+                            "type": "string",
+                            "location": "query"
+                        },
+                        "lang": {
+                            "default": "",
+                            "description": "Language of the error messages",
+                            "required": false,
+                            "type": "string",
+                            "enum": ["en", "es"],
+                            "location": "query"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

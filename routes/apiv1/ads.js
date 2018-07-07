@@ -19,7 +19,6 @@ router.get('/', jwtAuth(), async (req, res, next) => {
 
         const skip = parseInt(req.query.skip);
         const limit = parseInt(req.query.limit);
-        const fields = req.query.fields;
         const sort = req.query.sort;
 
         // Build filters (name, tag, type, price range)
@@ -59,7 +58,7 @@ router.get('/', jwtAuth(), async (req, res, next) => {
             filter.selling = (selling === 'true');
         }
 
-        const ads = await Ad.list(filter, skip, limit, fields, sort);
+        const ads = await Ad.list(filter, skip, limit, sort);
         res.json({
             success: true, 
             result: ads 

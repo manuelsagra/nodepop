@@ -36,7 +36,7 @@ npm run lint
 To start the server you should execute:
 
 ```shell
-npm run start
+npm start
 ```
 
 If you want to start the server with debug info you need to execute:
@@ -49,7 +49,9 @@ In both modes a cluster is started with as many nodes as the number of CPU cores
 
 ## API documentation
 
-Error messages are available either in *english* (default) or *spanish*. To use one of this languages, you can use the `lang` query parameter or the browser standard `Accept-Language` header and the appropiate ISO code (`en`, `es`).
+Error messages are available either in *english* (default) or *spanish*. To choose one of this languages, you can use the `lang` query parameter or the browser standard `Accept-Language` header and the appropiate ISO code (`en`, `es`).
+
+You can also use [iodocs](https://github.com/mashery/iodocs) to browse the documentation. Install the product somewhere on your machine with the instructions provided in the webpage, and then copy the configuration files provided in this project (you can find them in the folder iodocs) in the root directory of the installation. Then, you can start iodocs (usually by executing `npm start`) and point your browser to [http://localhost:3001](http://localhost:3001). Be aware that iodocs is not updated since 2014, has some deprecated code and node warns about some vulnerabilities in the dependencies.
 
 ### Users
 
@@ -81,7 +83,7 @@ Using the previous token, retrieves a list of ads, with the following parameters
 * **tag** - Tag used in the ad *(Optional)*
 * **skip** - Number of items to skip *(Optional)*
 * **limit** - Number of items to show *(Optional)*
-* **sort** - Sort results by this field (name, selling, price or tag) *(Optional)*
+* **sort** - Sort results by this field (name, selling, price or tags) *(Optional)*
 
 #### GET /ads/tags
 

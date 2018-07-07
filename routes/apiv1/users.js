@@ -29,6 +29,7 @@ router.post('/', async (req, res, next) => {
         user.password = hash;
 
         const userSaved = await user.save();
+        userSaved['__v'] = undefined;
         res.json({
             success: true, 
             result: userSaved 
