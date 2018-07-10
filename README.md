@@ -55,7 +55,7 @@ You can also use [iodocs](https://github.com/mashery/iodocs) to browse the docum
 
 ### Users
 
-#### POST /users
+#### POST /apiv1/users
 
 Used to register a user. It uses the following parameters in the body:
 
@@ -63,7 +63,7 @@ Used to register a user. It uses the following parameters in the body:
 * **email** - E-mail of the user *(Required)*
 * **password** - Password of the user *(Required)*
 
-#### POST /users/authenticate
+#### POST /apiv1/users/authenticate
 
 To authenticate and retrieve a JWT token. The following parameters in the body are needed:
 
@@ -72,7 +72,7 @@ To authenticate and retrieve a JWT token. The following parameters in the body a
 
 ### Ads
 
-#### GET /ads
+#### GET /apiv1/ads
 
 Using the previous token, retrieves a list of ads, with the following parameters:
 
@@ -85,7 +85,7 @@ Using the previous token, retrieves a list of ads, with the following parameters
 * **limit** - Number of items to show *(Optional)*
 * **sort** - Sort results by this field (name, selling, price or tags) *(Optional)*
 
-#### GET /ads/tags
+#### GET /apiv1/ads/tags
 
 To see the list of tags used in the ads. It just need one parameter:
 

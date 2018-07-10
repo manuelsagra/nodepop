@@ -31,7 +31,7 @@
                     <h2>Users</h2>
 
                     <div class="card card-body bg-light mb-3">
-                        <h3><span class="badge badge-secondary">POST</span> /users</h3>
+                        <h3><span class="badge badge-secondary">POST</span> /apiv1/users</h3>
                         <p>Used to register a user. It uses the following parameters in the body:</p>   
                         <ul>   
                             <li><strong>name</strong> - Name of the user <em>(Required)</em></li>
@@ -40,7 +40,7 @@
                         </ul>  
                     </div>
                     <div class="card card-body bg-light">
-                        <h3><span class="badge badge-secondary">POST</span> /users/authenticate</h3>
+                        <h3><span class="badge badge-secondary">POST</span> /apiv1/users/authenticate</h3>
                         <p>To authenticate and retrieve a JWT token. The following parameters in the body are needed:</p>   
                         <ul>   
                             <li><strong>email</strong> - E-mail of the user <em>(Required)</em></li>
@@ -51,7 +51,7 @@
                     <h2 class="mt-5">Ads</h2>
 
                     <div class="card card-body bg-light mb-3">
-                        <h3><span class="badge badge-secondary">GET</span> /ads</h3>
+                        <h3><span class="badge badge-secondary">GET</span> /apiv1/ads</h3>
                         <p>Using the previous token, retrieves a list of ads, with the following parameters:</p>   
                         <ul>   
                             <li><strong>token</strong> - A JWT token obtained via a POST request to <code>/users/authenticate</code> <em>(Required)</em></li>
@@ -65,7 +65,7 @@
                         </ul> 
                     </div>
                     <div class="card card-body bg-light">
-                        <h3><span class="badge badge-secondary">GET</span> /ads/tags</h3>
+                        <h3><span class="badge badge-secondary">GET</span> /apiv1/ads/tags</h3>
                         <p>To see the list of tags used in the ads. It just need one parameter:</p>   
                         <ul>   
                             <li><strong>token</strong> - A JWT token obtained via a POST request to <code>/users/authenticate</code> <em>(Required)</em></li>
