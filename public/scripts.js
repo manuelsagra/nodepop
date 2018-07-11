@@ -16,7 +16,7 @@ $(document).ready(function() {
                 password: $('#password').val()
             },
             success: function(data) {
-                if (data.success) {
+                if (data.success && data.token) {
                     token = data.token;
 
                     $('#login-form').hide();
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
                     searchAds();
                 } else {
-                    alert(data.error);
+                    alert(data.message);
                 }
             }
         });
