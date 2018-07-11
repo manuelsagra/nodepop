@@ -93,4 +93,4 @@ To see the list of tags used in the ads. It just need one parameter:
 
 ## Live version
 
-You can test the API and the sample app here: [https://nodepop.manuelsagra.com/](https://nodepop.manuelsagra.com). There is even a (promo page)[http://5.56.62.240/] if you are curious!
+You can test the API and the sample app here: [https://nodepop.manuelsagra.com/](https://nodepop.manuelsagra.com). There is even a [promo page](http://5.56.62.240/) if you are curious!
