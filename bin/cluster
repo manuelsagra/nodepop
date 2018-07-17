@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('nodepop:server');
 var http = require('http');
+const cluster = require('cluster');
 
 /**
  * Get port from environment and store in Express.
@@ -16,19 +17,36 @@ var port = normalizePort(process.env.NODEPOP_PORT || '3000');
 app.set('port', port);
 
 
-/**
- * Create HTTP server.
- */
+if (cluster.isMaster) {
+    const numCPUs = require('os').cpus().length;
 
-var server = http.createServer(app);
+    cluster.on('listening', (worker, address) => {
+        console.log('Worker', worker.id, 'with pid', worker.process.pid, 'started on port', address.port);
+    });
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+    cluster.on('exit', (worker) => {
+        console.log('Worker', worker.process.pid, 'has died');
+        cluster.fork();
+    });
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+} else {
+    /**
+     * Create HTTP server.
+     */
+
+    var server = http.createServer(app);
+
+    /**
+     * Listen on provided port, on all network interfaces.
+     */
+
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
+}
 
 /**
  * Normalize a port into a number, string, or false.

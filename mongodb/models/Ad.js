@@ -18,6 +18,18 @@ adSchema.index({
     tags: 1
 });
 
+adSchema.index({
+    selling: 1
+});
+
+adSchema.index({
+    price: 1
+});
+
+adSchema.index({
+    tags: 1
+});
+
 // lists ads with criteria
 adSchema.statics.list = function(filter, skip, limit, sort) {
     const query = Ad.find(filter);
