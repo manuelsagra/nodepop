@@ -51,7 +51,7 @@ To start in cluster mode (with as many nodes as the number of CPU cores) the com
 npm run cluster
 ```
 
-Once started, you can see the documentation and a sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/). If you need to change this port or the database connection, you can change these enviroment variables:
+Once started, you can see the documentation and a sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/). If you need to change this port or the database connection, you can change these environment variables:
 
 * NODEPOP_PORT (`3000` by default)
 * NODEPOP_DATABASE_URI (`mongodb://localhost:27017/nodepop` by default)
