@@ -51,7 +51,7 @@ To start in cluster mode (with as many nodes as the number of CPU cores) the com
 npm run cluster
 ```
 
-Once started, you can see the documentation and a sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/). If you need to change this port or the database connection, you can change these environment variables:
+Once started, you can see the documentation and a sample app pointing your browser to [http://localhost:3000/](http://localhost:3000/). If you need to edit this port or the database connection, you can change these environment variables:
 
 * NODEPOP_PORT (`3000` by default)
 * NODEPOP_DATABASE_URI (`mongodb://localhost:27017/nodepop` by default)
@@ -104,4 +104,6 @@ To see the list of tags used in the ads. It just need one parameter:
 
 You can test the API and the sample app here: [https://nodepop.manuelsagra.com/](https://nodepop.manuelsagra.com). If the images don't load in the sample app, try to disable uBlock Origin or any other ad blocking extension you have installed in your browser.
 
-There is even a [promo page](http://5.56.62.240/) if you are curious!
+There's even a [promo page](http://5.56.62.240/) if you are curious!
+
+There's [another instance on an Amazon EC2 server](https://smnt.es) using Docker containers.
