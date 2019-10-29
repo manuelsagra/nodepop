@@ -99,11 +99,3 @@ Using the previous token, retrieves a list of ads, with the following parameters
 To see the list of tags used in the ads. It just need one parameter:
 
 * **token** - A JWT token obtained via a POST request to `/users/authenticate` *(Required)*
-
-## Live version
-
-You can test the API and the sample app here: [https://nodepop.manuelsagra.com/](https://nodepop.manuelsagra.com). If the images don't load in the sample app, try to disable uBlock Origin or any other ad blocking extension you have installed in your browser.
-
-There's even a [promo page](http://5.56.62.240/) if you are curious!
-
-There's [another instance on an Amazon EC2 server](https://smnt.es) using Docker containers.
